@@ -3,7 +3,11 @@ from cars.models import Car
 
 # Create your views here.
 def cars_view(request):
-    cars = Car.objects.all()
+    cars = Car.objects.all().order_by('factory_year')
+    search = request.GET.get('search')
+    
+    if search:
+        cars = cars.filter(model__icontains=search)
     
     return render(
         request,
