@@ -1,89 +1,97 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}{% endblock %}</title>
-  <style>
-    body {
-        font-family: 'Open Sans', sans-serif;
-        background-color: #f7f7f7;
-        color: #333;
-        margin: 0;
-        padding: 0;
-    }
-
-    header {
-        background-color: #0096c7;
-        color: #fff;
-        text-align: center;
-    }
-
-    footer {
-        background-color: #ccc;
-        color: #333;
-        padding: 20px;
-        text-align: center;
-    }
-
-    nav {
-        background-color: #0096c7;
-        color: #fff;
-        height: 50px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    nav ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-    }
-
-    nav ul li {
-        margin: 0 10px;
-    }
-
-    nav ul li a {
-        color: #fff;
-        text-decoration: none;
-        font-size: 16px;
-        padding: 15px;
-        transition: all 0.3s ease;
-    }
-
-    nav ul li a:hover {
-        background-color: #32bbe8;
-    }
-
-    nav ul li.active a {
-        background-color: #666;
-    }
-
-    nav ul li.active a:hover {
-        background-color: #999;
-    }
-
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Website{% endblock %}</title>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: #003366; /* Tom de azul marinho */
+            color: #fff;
+            text-align: center;
+            padding: 20px 0; /* Adiciona espaçamento interno */
+            margin: 0; /* Remove qualquer margem externa */
+        }
+        
+        footer {
+            background-color: #003366; /* Tom de azul marinho */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        nav {
+            background-color: #003366; /* Tom de azul marinho */
+            color: #fff;
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0; /* Remove qualquer margem externa */
+            padding: 0 20px; /* Adiciona espaçamento interno */
+        }
+        
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        
+        nav ul li {
+            margin: 0 10px;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            background-color: #005f8d; /* Tom de azul um pouco mais claro para hover */
+        }
+        
+        nav ul li.active a {
+            background-color: #666;
+        }
+        
+        nav ul li.active a:hover {
+            background-color: #999;
+        }
+    </style>
 </head>
 <body>
-  <header>
+    <header>
+        <h1>Welcome to My Website</h1>
+    </header>
+
     <nav>
-      <ul>
-        <li><a href="{% url 'cars_list' %}">Cars</a></li>
-      </ul>
+        <ul>
+            <li><a href="{% url 'cars_list' %}">Cars</a></li>
+            <li><a href="{% url 'new_car' %}">New car</a></li>
+        </ul>
     </nav>
-  </header>
 
-  <main>
-    {% block content %}
-    {% endblock %}
-  </main>
+    <main>
+        {% block content %}
+        <!-- O conteúdo da página vai aqui -->
+        {% endblock %}
+    </main>
 
-  <footer>
-    <p>&copy; 2024 Matheus Neves</p>
-  </footer>
+    <footer>
+        <p>&copy; 2024 Matheus Neves</p>
+    </footer>
 </body>
 </html>
